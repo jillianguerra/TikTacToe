@@ -38,11 +38,6 @@ document.querySelector('#board').addEventListener('click', handleDrop)
 init()
 function init() {
     turn = 1
-    // board = [
-    // [0, 0, 0],
-    // [0, 0, 0], 
-    // [0, 0, 0],
-    // ]
     board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     winner = null;
     render()
@@ -53,16 +48,7 @@ function render() {
     renderScore()
     renderControl()
 }
-// function renderBoard(){
-//     board.forEach(function(colArr, colIndex) {
-//         colArr.forEach(function(rowValue, rowIndex) {
-//           const cellId = `r${rowIndex}c${colIndex}`;
-//           const cellEl = document.getElementById(cellId)
-//           cellEl.style.color = COLORS[rowValue]
-//           cellEl.innerText = `${LETTERS[rowValue]}`
-//         })
-//       })
-// }
+
 function renderBoard() {
 
     board.forEach(function(arr, idx){
@@ -133,7 +119,6 @@ function getRoundWinner(player) {
     if (3 === score[player]) {
         modalEl.classList.toggle('open')
         modalDivEl.innerHTML = `<span style='color: ${COLORS[player]}'>${NAMES[player].toUpperCase()}</span> WINS!`
-        playAgainBtn.style.visibility = 'hidden'
     }
 }
 function resetScore() {
@@ -142,7 +127,7 @@ function resetScore() {
     init()
     modalEl.classList.toggle('open')
 }
-// do a loop to go through the array and find if there are any zeros in the array. 
+// go through the array and find if there are any zeros in the array. 
 // If there aren't any 0, then it's a tie.
 
 // Winning board states:
